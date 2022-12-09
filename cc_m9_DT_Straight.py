@@ -144,7 +144,7 @@ class Missions:
         self.init_align(correction=False)
         #moving base2 to base1
         if straight: #starting point right base block #8
-            self.motor_pair.move(175,"cm", -1, 100)
+            self.motor_pair.move(175,"cm", 0, 100)
         else: #starting point right base block #6
             self.motor_pair.move(70,"cm", 5, 100)
             self.motor_pair.move(105,"cm", -7, 100)
