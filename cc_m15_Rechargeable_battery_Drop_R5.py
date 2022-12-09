@@ -144,18 +144,22 @@ class Missions:
         self.init_align(correction=False)
         #moving from R5 to M15 Rechargeable Battery Station with three EU
 
+        #move forward 58cm
+        self.motor_pair.move(5,"cm", 0, 30)
         #turn left 20 degree
         self.turn(-20,7,use_gyro=True)
 
         #first try
         #move forward 58cm
-        self.motor_pair.move(60,"cm", 0, 55)
+        self.motor_pair.move(58,"cm", 0, 55)
         #turn left 70 degree and place EU in the rechargable station
-        self.turn(-72,7,use_gyro=True)
+        self.turn(-75,7,use_gyro=True)
+        #move forward so you can move the EU to the base
+        self.motor_pair.move(2,"cm", 0, 35)
         #reverse back so you can come right base
-        self.motor_pair.move(-20,"cm", 0, 100)
+        self.motor_pair.move(-12,"cm", 0, 70)
         #turn right70 deg so can come back stright
-        self.turn(90,7,use_gyro=True)
+        self.turn(80,7,use_gyro=True)
         
         #second try
         if False:
@@ -163,13 +167,15 @@ class Missions:
             self.motor_pair.move(10,"cm", 0, 50)
             #turn left 70 degree and place EU in the rechargable station
             self.turn(-75,7,use_gyro=True)
+            #move forward so you can move the EU to the base
+            self.motor_pair.move(3,"cm", 0, 35)
             #reverse back so you can come right base
-            self.motor_pair.move(-15,"cm", 0, 100)
+            self.motor_pair.move(-20,"cm", 0, 50)
             #turn right70 deg so can come back stright
             self.turn(75,7,use_gyro=True)
 
         #reverse back stright
-        self.motor_pair.move(-85,"cm", 0, 100)
+        self.motor_pair.move(-80,"cm", 0, 90)
 
         #self.motor_pair.move(105,"cm", -7, 100)
         #end of function
