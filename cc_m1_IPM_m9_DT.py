@@ -140,11 +140,12 @@ class Missions:
             self.turn_using_distance(angle, dist)
 
     def M9_DT(self,stright=False):        
+        print("M9_DT: Points: 30 = DT 30")
         self.init_align(correction=False)
         #moving base2 to base1
-        if stright:
+        if stright: #starting point right base block #8
             self.motor_pair.move(175,"cm", -1, 100)
-        else:
+        else: #starting point right base block #6
             self.motor_pair.move(70,"cm", 5, 100)
             self.motor_pair.move(105,"cm", -7, 100)
         #end of function
@@ -177,8 +178,9 @@ def main():
     #print("Moving right")
     #missions.turn(145,7,use_gyro=True,turn_speed=20)
 
-    #missions.M1_IPM_M9_DT()
-    missions.M9_DT(stright=True)
+    missions.M1_IPM_M9_DT()
+    #missions.M9_DT(stright=True)
+
     #missions.turn(-150,10)
     #missions.turn(150,10)
 
