@@ -219,15 +219,15 @@ class Cyber_Cylones(FLLBaseLib):
     def test(self):
         pass
 
-    # Mission 01 - MOVIE SET######################################
+    # Mission 01 - 3D MoIVE CINEMA######################################
     # Alignement : 3 block from front and left one block
     ################################################################
     async def mission1(self):
         # Wait make sure the attachement is all the way up before starting this mission #
-        await self.move_forward(14)# Move the Robot to the pully place
-        await cc_robot.lefthand_movedown_relative(360) # Move down the attachment to hold the pully
-        await self.move_backward(14)
-        await cc_robot.lefthand_moveup_relative(360)
+        await self.move_forward(14)# Move the Robot to close to mission location.
+        await cc_robot.lefthand_movedown_relative(360) # Move Left hand move down to hit 2D trigger to create 3D expirence
+        await self.move_backward(14) # Move the Robot back to home/lanuch
+        await cc_robot.lefthand_moveup_relative(360) # Lift the left hand up for next mission.
         
         
 
