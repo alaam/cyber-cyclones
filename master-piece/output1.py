@@ -219,7 +219,7 @@ class Cyber_Cylones(FLLBaseLib):
     def test(self):
         pass
 
-    # Mission 01 - 3D MoIVE CINEMA######################################
+    # Mission 01 - 3D CINEMA######################################
     # Alignement : 3 block from front and left one block
     ################################################################
     async def mission1(self):
