@@ -427,23 +427,29 @@ class FLL2024SubmergedMissions(FLLBaseLib):
         await self.turn_left(27,33)
         #await self.turn_left(25,25)
         #await self.move_backward(10)
-        await self.turn_left(140,50)
-        await self.move_forward(50,360)
+        await self.turn_left(170,50)
+        await self.move_forward(70,360)
         pass
 
     async def mission_2_shark_20_10_3_cr_20_15_1_cn_40_10(self):
         if True:
-            await self.move_forward(69,700,1)
+            await self.move_forward(65,700,1)
             #await self.turn_left(69)
+            #await self.turn_left(47)
+            
             await self.turn_left(50)
-            #await self.turn_left(73)
+            
             await self.second_arm_down(degree=240)
-            await self.move_backward(2)
+            
+            await self.move_backward(5)
             await self.second_arm_up(degree=240)
+            
             await self.move_forward(2)
+            
             #await self.turn_right(110)
             #await self.turn_right(112)
-            await self.turn_right(90)
+            #await self.turn_right(90)
+            await self.turn_right(85)
             #await self.turn_right(90)
             await self.move_forward(1)
             await self.second_arm_down(degree=240)
@@ -462,62 +468,58 @@ class FLL2024SubmergedMissions(FLLBaseLib):
         await self.move_forward(10)
 
     async def mission_rasing_mast_30_20(self):
-        await self.move_forward(48,600)
-
-        await self.second_arm_down()
+        await self.move_forward(40,600)
+        await self.turn_right(15)
+        await self.move_forward(8,600)
+        await self.second_arm_down(150)
+        
         #await self.move_forward(10,600)
-        #await self.turn_right(98)
-        await self.turn_right(110)
-    # await self.turn_right(100)
+        await self.turn_right(96)
+        #await self.turn_right(110)
+        #await self.second_arm_down()
+        # await self.turn_right(100)
         #await self.move_forward(9)
-        await self.move_forward(9)
-        await self.second_arm_up(degree=110,speed=300)
+        await self.move_forward(8)
+        await self.second_arm_up(degree=110,speed=100)
+        
         await self.turn_left(98)
         await self.second_arm_up(degree=100)
         await self.move_backward(65,600)
 
+
+
+
     async def mission_moving_ship_30_20(self):
-        await self.move_forward(30,steer=0)
+        await self.move_forward(30,velo=400,steer=2)
+        
         await self.move_forward(50,600)
-        await self.move_forward(25,600,steer=-15)
-        await self.move_backward(100,600)
-        #await self.move_backward(50,600,steer=13)
+       
+        await self.move_forward(21,steer=-10)
+        
+        await self.move_backward(30,600)
+        await self.turn_left(35,speed=100)
+        await self.move_forward(30,600,steer=0)
+        #return
+        #await self.turn_right(120,speed=100)
+        await self.move_backward(50,600,steer=-10)
+        await self.move_backward(90,600,steer=10)
 
 
-    async def mission_13_CSL_20(self):
-        await self.move_forward(41,velo=500,steer=-2)
-        await self.turn_right(100,speed=100) #73
-        await self.move_backward(5)
-        await self.second_arm_down(speed=200)
-        await self.move_forward(7,steer=4)
-        await self.second_arm_up()
-        await self.turn_right(74)
-        await self.turn_right(130)
-        await self.move_forward(32, velo=700)
-        return
-        await self.turn_right(35)
-        await self.move_forward(50,500)
 
-        return
-        await self.move_backward(25)
-        await self.move_forward(50,500)
-        return
-        await self.turn_left(135)
-        await self.move_backward(60)
-        #await self.move_forward(60, 700)
-
-
+    #Alignment 10 blocks from Right. 
+    
+    #Alignment - 6 blocks from left
     async def mission_9_UE_20_10(self):
         speed=660
         #await self.second_arm_up()
         #await self.second_arm_down()
         await self.move_forward(5)
-        await self.turn_left(48, correct_error=False)
+        await self.turn_left(35, correct_error=False)
         await self.move_forward(50, velo=660)
         await self.move_backward(50,velo=660)
 
     async def mission_11_UE_20_10(self):
-        await self.move_forward (40,velo=500,steer=-1)
+        await self.move_forward (5,velo=500,steer=-2)
         await self.move_forward (45,velo=500,steer=-2)
         return
         await self.second_arm_down(130)
@@ -534,41 +536,28 @@ class FLL2024SubmergedMissions(FLLBaseLib):
     async def mission_13_CSL_20_backup(self):
         speed=660
         #await self.second_arm_up()
-        await self.second_arm_down()
-        #await self.second_arm_up(degree=270)
-
-        #return
+        #await self.second_arm_down()
+        #await self.second_arm_down(degree=170)
+    
         await self.move_forward(5)
+        
         await self.turn_left(46, correct_error=False)
         await self.move_forward(30)
-        await self.turn_right(82)
+        await self.turn_right(90)
+        #await self.turn_right(60)
+        await self.second_arm_down(degree=170)
         await self.move_forward(17)
         await self.second_arm_up(degree=270)
-        await self.turn_right(70)
-        await self.move_backward(10)
-        await self.turn_left(90)
-        await self.move_backward(40)
+        #await self.turn_right(70)
+        #await self.move_backward(10)
+        await self.turn_left(120)
+        await self.move_backward(40, 600)
         #await self.second_arm_up()
 
-    async def mission_13_CSL_20_v1(self):
-        speed=660
-        await self.second_arm_down()
-        await self.move_forward(12)
-        await self.turn_left(46)
-        await self.move_forward(22)
-        await self.turn_right(79)
-        await self.move_forward(10)
-        await self.second_arm_up()
-        await self.turn_right(70)
-        await self.move_backward(10)
-        await self.turn_left(120)
-        await self.move_backward(45)
-        await self.turn_right(20)
-        await self.move_backward(10)
-
+    
     async def go_between_launch_zones(self):
           await self.move_forward(200,velo=700)
-        
+    # Alignment 2 blocks from right    
     async def mission_5_angular_fish(self):
         await self.move_forward(57,700,steer=1)
         await self.turn_right(31,speed=100,use_gyro=True)
@@ -631,57 +620,60 @@ class FLL2024SubmergedMissions(FLLBaseLib):
             await self.move_forward(72, steer=-3)
             #await self.turn_left(73, speed=100) #when the wheel is dirty
             await self.turn_left(45, speed=100)
-            await self.move_forward(23)
-            await self.turn_left(55) #this is for moving towards the circle
-            await self.move_backward(20)
-            await self.turn_right(45)
-            await self.move_forward(90, steer=-1)
-            await self.turn_left(55)
+            await self.move_forward(29)
+            await self.turn_left(67) #this is for moving towards the circle
+            await self.move_backward(10)
+            await self.turn_right(49)
+            
+            await self.move_forward(85, steer=-1)
+            await self.turn_left(65)
             await self.move_forward(70)
 
     async def race1(self):
-          await self.mission_14_scooping_samples_10_5()
+          await self.mission_5_angular_fish()
         
 
     async def race2(self):
-        await self.mission_2_shark_20_10_3_cr_20_15_1_cn_40_10()
+        await self.mission_9_UE_20_10()
         pass
 
     async def race3(self):
-        await self.mission_coral_reef_10()
-
+        #await self.mission_13_CSL_20()
+        await self.mission_13_CSL_20_backup()
         pass
 
     async def race4(self):
-        await self.mission_rasing_mast_30_20()
+        await self.mission_10_submersible()
 
         pass
 
     async def race5(self):
-        await self.mission_moving_ship_30_20()
+        await self.go_to_launch_area()
         pass
 
     async def race6(self):
-        await self.mission_13_CSL_20()
+        await self.mission_14_scooping_samples_10_5()
         pass
 
     async def race7(self):
-        await self.mission_5_angular_fish()
+        await self.mission_2_shark_20_10_3_cr_20_15_1_cn_40_10()
         pass
 
     async def race8(self):
-        await self.mission_10_submersible()
+        await self.mission_rasing_mast_30_20()
         pass
 
     async def race9(self):
-        await self.go_to_launch_area()
+        await self.mission_moving_ship_30_20()
         pass
-        
+    
     async def race10(self):
-        await self.mission_9_UE_20_10()
+        await self.mission_coral_reef_10()
         pass
-    async def test(self):
 
+    
+    async def test(self):
+        pass
 
         await self.first_arm_reset()
         await self.first_arm_down()
@@ -745,10 +737,12 @@ async def main():
     race2=False
     race3=False
     race4=False
-    race5=True
+    race5=False
     race6=False
-    race7=False
+    race7=True
+    race8=False
     race9=False
+    race10=False
     arm_reset=False
     if arm_reset:
         await fll_match_missions.robot_arm_reset()
@@ -787,8 +781,14 @@ async def main():
     if race7:
         await fll_match_missions.race7()
 
+    if race8:
+        await fll_match_missions.race8()
+
     if race9:
         await fll_match_missions.race9()
+
+    if race10:
+        await fll_match_missions.race10()
     #races done
 
 
