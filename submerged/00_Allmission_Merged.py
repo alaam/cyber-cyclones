@@ -285,6 +285,10 @@ class FLLBaseLib:
         await self.move(-distance_in_cm,velo=velo,steer=steer)
 
 
+    async def move_forward_with_correction(self,distance_in_cm,velo=360,steer=0):
+        await self.move(distance_in_cm,velo=velo,steer=steer, correct_error=True)
+
+
     async def move_forward(self,distance_in_cm,velo=360,steer=0):
         await self.move(distance_in_cm,velo=velo,steer=steer)
 
@@ -432,58 +436,44 @@ class FLL2024SubmergedMissions(FLLBaseLib):
         pass
 
     async def mission_2_shark_20_10_3_cr_20_15_1_cn_40_10(self):
-        if True:
-            await self.move_forward(65,700,1)
-            #await self.turn_left(69)
-            #await self.turn_left(47)
-            
-            await self.turn_left(50)
-            
-            await self.second_arm_down(degree=240)
-            
-            await self.move_backward(5)
-            await self.second_arm_up(degree=240)
-            
-            await self.move_forward(2)
-            
-            #await self.turn_right(110)
-            #await self.turn_right(112)
-            #await self.turn_right(90)
-            await self.turn_right(85)
-            #await self.turn_right(90)
-            await self.move_forward(1)
-            await self.second_arm_down(degree=240)
-            await self.second_arm_up()
-            await self.move_backward(8)
-            await self.turn_right(45)
-            #await self.move_backward(8);
-            await self.move_backward(10);
-            #await self.move_forward(15,700)
-            await self.move_forward(17,700)
-            await self.turn_left(55)
-            await self.move_backward(70,700)
+        # Shark mission
+        await self.move_forward(64,700)   
+        await self.turn_left(35)
+        await self.second_arm_down(degree=240)
+
+        # Coral Reef
+        await self.move_backward(2)
+        await self.second_arm_up(degree=240)
+        await self.turn_right(70)
+        await self.move_forward(9)
+        await self.second_arm_down(degree=240)
+       
+        # Coral Nursery
+        await self.second_arm_up()
+        await self.move_backward(6)
+        await self.turn_right(45)
+        await self.move_backward(10);
+
+        await self.move_forward(17,700)
+        await self.turn_left(55)
+        await self.move_backward(70,700)
 
     async def mission_coral_reef_10(self):
         await self.move_backward(8)
         await self.move_forward(10)
 
     async def mission_rasing_mast_30_20(self):
-        await self.move_forward(40,600)
-        await self.turn_right(15)
+        await self.move_forward(50,600,1)
+        await self.turn_right(50)
+        
         await self.move_forward(8,600)
-        await self.second_arm_down(150)
+        await self.turn_right(90)
+        await self.second_arm_down(180)
         
-        #await self.move_forward(10,600)
-        await self.turn_right(96)
-        #await self.turn_right(110)
-        #await self.second_arm_down()
-        # await self.turn_right(100)
-        #await self.move_forward(9)
         await self.move_forward(8)
-        await self.second_arm_up(degree=110,speed=100)
-        
+        await self.second_arm_up(degree=180,speed=200)
         await self.turn_left(98)
-        await self.second_arm_up(degree=100)
+        await self.second_arm_up(degree=180,speed=200)
         await self.move_backward(65,600)
 
 
@@ -499,11 +489,8 @@ class FLL2024SubmergedMissions(FLLBaseLib):
         await self.move_backward(30,600)
         await self.turn_left(35,speed=100)
         await self.move_forward(30,600,steer=0)
-        #return
-        #await self.turn_right(120,speed=100)
         await self.move_backward(50,600,steer=-10)
         await self.move_backward(90,600,steer=10)
-
 
 
     #Alignment 10 blocks from Right. 
@@ -511,45 +498,25 @@ class FLL2024SubmergedMissions(FLLBaseLib):
     #Alignment - 6 blocks from left
     async def mission_9_UE_20_10(self):
         speed=660
-        #await self.second_arm_up()
-        #await self.second_arm_down()
         await self.move_forward(5)
         await self.turn_left(35, correct_error=False)
         await self.move_forward(50, velo=660)
         await self.move_backward(50,velo=660)
 
-    async def mission_11_UE_20_10(self):
-        await self.move_forward (5,velo=500,steer=-2)
-        await self.move_forward (45,velo=500,steer=-2)
-        return
-        await self.second_arm_down(130)
-        await self.turn_right(30)
-        #return
-        #await self.move_forward(10)
-        #await self.second_arm_down(200)
-        await self.move_backward(12,velo=500)
-        return
-        await self.turn_left(45,speed=700)
-        await self.second_arm_up(300)
-        #next mission to immersive exp
-
+    
     async def mission_13_CSL_20_backup(self):
         speed=660
-        #await self.second_arm_up()
-        #await self.second_arm_down()
-        #await self.second_arm_down(degree=170)
-    
+        
         await self.move_forward(5)
         
         await self.turn_left(46, correct_error=False)
         await self.move_forward(30)
         await self.turn_right(90)
-        #await self.turn_right(60)
+        
         await self.second_arm_down(degree=170)
         await self.move_forward(17)
         await self.second_arm_up(degree=270)
-        #await self.turn_right(70)
-        #await self.move_backward(10)
+        
         await self.turn_left(120)
         await self.move_backward(40, 600)
         #await self.second_arm_up()
@@ -739,8 +706,8 @@ async def main():
     race4=False
     race5=False
     race6=False
-    race7=True
-    race8=False
+    race7=False
+    race8=True
     race9=False
     race10=False
     arm_reset=False
