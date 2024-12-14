@@ -464,37 +464,29 @@ class FLL2024SubmergedMissions(FLLBaseLib):
 
     async def mission_rasing_mast_30_20(self):
         await self.move_forward(50,600,1)
-        await self.turn_right(50)
-        
-        await self.move_forward(8,600)
-        await self.turn_right(90)
+        await self.turn_right(55)
+        await self.move_forward(7,600)
+        await self.turn_right(36)
+        await self.move_backward(3)
         await self.second_arm_down(180)
-        
         await self.move_forward(8)
         await self.second_arm_up(degree=180,speed=200)
-        await self.turn_left(98)
+        await self.turn_left(80)
         await self.second_arm_up(degree=180,speed=200)
         await self.move_backward(65,600)
 
 
-
-
     async def mission_moving_ship_30_20(self):
         await self.move_forward(30,velo=400,steer=2)
-        
         await self.move_forward(50,600)
-       
-        await self.move_forward(21,steer=-10)
-        
+        await self.move_forward(34,steer=-10)
         await self.move_backward(30,600)
         await self.turn_left(35,speed=100)
         await self.move_forward(30,600,steer=0)
         await self.move_backward(50,600,steer=-10)
-        await self.move_backward(90,600,steer=10)
+        await self.move_backward(120,600,steer=10)
 
-
-    #Alignment 10 blocks from Right. 
-    
+  
     #Alignment - 6 blocks from left
     async def mission_9_UE_20_10(self):
         speed=660
@@ -524,6 +516,7 @@ class FLL2024SubmergedMissions(FLLBaseLib):
     
     async def go_between_launch_zones(self):
           await self.move_forward(200,velo=700)
+
     # Alignment 2 blocks from right    
     async def mission_5_angular_fish(self):
         await self.move_forward(57,700,steer=1)
@@ -535,66 +528,25 @@ class FLL2024SubmergedMissions(FLLBaseLib):
         await self.second_arm_up()
     # await self.turn_right(130)
     # await self.move_forward(10)
-
+   
+    ### This Function is used to place UE in the cold seep.
     async def mission_10_submersible(self):
-        await self.turn_right(43,use_gyro = True)
-        await self.move_forward(40)
-        await self.turn_left(20,use_gyro = True)
-        await self.move_forward(80,500)
+        await self.move_forward(72, steer=-3)
+        #await self.turn_left(73, speed=100) #when the wheel is dirty
+        await self.turn_left(45, speed=100)
+        await self.move_forward(29)
+        await self.turn_left(67) #this is for moving towards the circle
+        await self.move_backward(10)
+        await self.turn_right(49)
+        await self.move_forward(85, steer=-1)
+        await self.turn_left(65)
+        await self.move_forward(70)
 
-    async def go_to_launch_area_old(self):
 
-        if False: #test code dont remove it
-            await self.move_forward(25, steer=-4)
-            await self.turn_left(78, speed=100)
-            await self.move_forward(20)
-            #await self.pivot_turn(-70)
-            #await self.pivot_turn(70)
-            await self.turn_left(70)
-            await self.turn_right(70)
-        else:
-            await self.move_forward(77, steer=-4)
-            await self.sleep(500)
-            await self.turn_left(78, speed=100)
-            await self.sleep(500)
-            await self.move_forward(30)
-            await self.sleep(500)
-            #await self.turn_left(70)
-            await self.pivot_turn(-70)
-            await self.sleep(500)
-            await self.pivot_turn(70)
-            await self.sleep(500)
-            return
-            await self.move_backward(20)
-            await self.turn_right(40)
-            await self.move_forward(10)
-            await self.turn_left(30)
-            await self.move_forward(90)
-            await self.turn_left(45)
-            await self.move_forward(60)
-
+    
     async def go_to_launch_area(self):
-
-        if False: #test code dont remove it
-            await self.move_forward(25, steer=-4)
-            await self.turn_left(78, speed=100)
-            await self.move_forward(20)
-            #await self.pivot_turn(-70)
-            #await self.pivot_turn(70)
-            await self.turn_left(70)
-            await self.turn_right(70)
-        else:
-            await self.move_forward(72, steer=-3)
-            #await self.turn_left(73, speed=100) #when the wheel is dirty
-            await self.turn_left(45, speed=100)
-            await self.move_forward(29)
-            await self.turn_left(67) #this is for moving towards the circle
-            await self.move_backward(10)
-            await self.turn_right(49)
-            
-            await self.move_forward(85, steer=-1)
-            await self.turn_left(65)
-            await self.move_forward(70)
+            await self.move_forward(200,velo=1200)
+           
 
     async def race1(self):
           await self.mission_5_angular_fish()
@@ -703,11 +655,11 @@ async def main():
     race1=False
     race2=False
     race3=False
-    race4=False
+    race4=True
     race5=False
     race6=False
     race7=False
-    race8=True
+    race8=False
     race9=False
     race10=False
     arm_reset=False
