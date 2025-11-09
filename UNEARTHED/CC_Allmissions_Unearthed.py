@@ -426,52 +426,56 @@ class FLL2025UnearthedMissions(FLLBaseLib):
     async def mission_1_SB_30(self):
         await self.move_forward(67,velo=500)
         await self.sleep(10)
-        await self.move_backward(30,velo=700)
-
-        return
-        await self.turn_left(40)
-        await self.second_arm_down(degree=180,speed=200)
-        await self.move_forward(30,velo=700)
-        await self.move_backward(30,velo=700)
-        await self.second_arm_up(degree=90,speed=200)
-        await self.move_forward(30,velo=700)
-        await self.second_arm_up(degree=180,speed=200)
-        await self.move_backward(30,velo=700)
-        return
-        await self.second_arm_down()
-        await self.move_forward(60,velo=700)
-        await self.move_backward(60,velo=700)
-        await self.second_arm_up()
-        await self.second_arm_up()
-        await self.first_arm_up()
-        return
-        await self.move_forward(60,velo=700)
-        await self.move_backward(60,velo=700)
-        await self.move_forward(1,velo=700)
-        await self.move_backward(10,velo=700)
-        await self.move_forward(1,velo=700)
-        await self.sleep(50)
-        await self.turn_right(25,speed=700)
-        await self.move_forward(1,velo=1000)
-        await self.turn_left(27,speed=1000)
-        await self.move_backward(10)
+        await self.move_backward(67,velo=700)
         pass
 
     async def mission_12_SO_30(self):
         await self.first_arm_reset()
         await self.second_arm_up(degree=180,speed=200)
-        await self.move_forward(42,velo=700)
+        await self.move_forward(43,velo=700)
         await self.second_arm_down(degree=180,speed=200)
         await self.move_backward(10,velo=650)
         await self.second_arm_up(degree=180,speed=200) 
+        await self.move_forward(30,velo=180,steer=6)
+        return
         await self.move_backward(10,velo=700)
         await self.turn_left(50)
-        await self.second_arm_down(degree=150,speed=200)
         await self.move_forward(15,velo=300)
-        await self.turn_right(28)
-        await self.move_forward(32,velo=350)
+        await self.turn_right(25)
+        await self.move_forward(32,velo=390,steer=-2)
+        return
+
+    async def mission_10_TS_30(self):
+        await self.second_arm_reset() 
+        await self.second_arm_up(degree=180,speed=200)
+        await self.turn_left(35)
+        #await self.move_forward(80,velo=700)
+        await self.move_forward(100,velo=700)
+        return
+        await self.turn_left(40)  
+        await self.move_forward(25,velo=700)
+        await self.second_arm_down(degree=180,speed=200)
+        return
+        await self.turn_left(80)
+
+        await self.move_forward(30,velo=700)
+        await self.second_arm_down(degree=180,speed=200)
 
         return
+        await self.move_forward(80,velo=700)
+        await self.turn_left(50)
+        await self.move_forward(20,velo=700)
+        await self.second_arm_down(degree=180,speed=200)
+
+    async def mission_03_ME_30(self):
+       await self.move_forward(65,velo=700)
+       await self.turn_right(30)
+       await self.move_forward(20,velo=700)
+       await self.turn_left(30)
+       await self.move_forward(20,velo=700)
+       await self.second_arm_up(degree=180,speed=200)
+
+
     async def race1(self):
         await self.mission_1_SB_30()
         pass
@@ -491,7 +495,7 @@ class FLL2025UnearthedMissions(FLLBaseLib):
         pass
 
     async def race5(self):
-        await self.go_to_launch_area()
+        await self.mission_10_TS_30()
         pass
 
     async def race6(self):
@@ -499,7 +503,7 @@ class FLL2025UnearthedMissions(FLLBaseLib):
         pass
 
     async def race7(self):
-        await self.mission_2_shark_20_10_3_cr_20_15_1_cn_40_10()
+        await self.mission_03_ME_30()
         pass
 
     async def race8(self):
@@ -576,14 +580,14 @@ async def main():
     #await ls_robot.follow_line(10000)
 
     test=False
-    race1=True
+    race1=False
     race2=False
     race3=False
     race4=False
     race5=False
     race6=False
-    race7=False
-    race8=True
+    race7=True
+    race8=False
     race9=False
     race10=False
     arm_reset=False
